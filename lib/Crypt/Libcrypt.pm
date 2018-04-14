@@ -100,7 +100,12 @@ SHA-512
 =end pod
 
     use NativeCall;
-    constant LIB = [ $*DISTRO.name eq 'macosx' ?? 'libgcrypt.dylib' !! 'crypt', v1];
+    # Mac OSX uses libgcrypt to supply crypt()
+    # FreeBSD always provides a non-versioned symlink AFAIK
+    constant LIB = [ 
+        $*DISTRO.name eq 'macosx' ?? 'libgcrypt.dylib' !! 'crypt', 
+        $*DISTRO.name eq 'freebsd' ?? Version !! v1
+    ];
     sub crypt(Str , Str  --> Str) is native(LIB) is export { * }
 }
 # vim: expandtab shiftwidth=4 ft=perl6
