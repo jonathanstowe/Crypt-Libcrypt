@@ -100,9 +100,7 @@ SHA-512
 =end pod
 
     use NativeCall;
-    my $lib = $*DISTRO.name eq 'macosx'
-      ?? 'libgcrypt.dylib'
-      !! 'crypt';
-    sub crypt(Str , Str  --> Str) is native($lib, v1) is export { * }
+    constant LIB = [ $*DISTRO.name eq 'macosx' ?? 'libgcrypt.dylib' !! 'crypt', v1];
+    sub crypt(Str , Str  --> Str) is native(LIB) is export { * }
 }
 # vim: expandtab shiftwidth=4 ft=perl6
