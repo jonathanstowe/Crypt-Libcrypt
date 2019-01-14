@@ -1,3 +1,5 @@
+v0.0.9      Mon 14 Jan 13:35:45 GMT 2019
+    * Spring clean and up to CPAN
 v0.0.8		Sat 14 Apr 09:19:54 BST 2018
 	* Make work with libgcrypt on Mac OSX
 	* Use unversioned library on FreeBSD
@@ -7,7 +9,5 @@ v0.0.6		Sat Mar 12 14:00:07 2016 +0000
 	* Remove version literal
 v0.0.5		Thu Dec 24 19:35:38 2015 +0000 
 	* Fix for 6.c
-		 
 	* done -> done-testing
-		 
 	* Add vim modeline

@@ -40,8 +40,6 @@ install this with *zef* :
 
 *Notes for OSX* this can be used with libgcrypt on OSX (if you use brew, you can `brew install libgcrypt`)
 
-
-
 ## Support
 
 Suggestions/patches are welcomed via github at:
@@ -58,4 +56,4 @@ This is free software.
 
 Please see the [LICENCE](LICENCE) file in the distribution
 
-© Jonathan Stowe 2015, 2016, 2017
+© Jonathan Stowe 2015, 2016, 2017, 2019
