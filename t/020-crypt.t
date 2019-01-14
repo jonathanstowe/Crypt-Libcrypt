@@ -3,8 +3,6 @@
 use v6;
 use Test;
 
-use lib 'lib';
-
 use Crypt::Libcrypt;
 
 my $pass = 'abcde12345';
