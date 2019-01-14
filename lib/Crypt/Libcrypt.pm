@@ -1,6 +1,6 @@
-use v6.c;
+use v6;
 
-module Crypt::Libcrypt:ver<0.0.8>:auth<github:jonathanstowe> {
+module Crypt::Libcrypt:ver<0.0.9>:auth<github:jonathanstowe>:api<1.0> {
 
 =begin pod
 
@@ -52,7 +52,7 @@ more alphanumeric characters is the DES algorithm which was the original
 provided on Unix systems, it is however fairly weak and subject to brute
 force attack so should be avoided where possible.
 
-If alternative algorithms are available they are indicated by providing a 
+If alternative algorithms are available they are indicated by providing a
 salt of the form:
 
 =begin code
@@ -83,7 +83,7 @@ Blowfish is not implemented for C<glibc> but is available on FreeBSD
 
 =item 3
 
-NT-Hash is available on FreeBSD and is intended to be compatible with 
+NT-Hash is available on FreeBSD and is intended to be compatible with
 Microsoft's NT scheme.  It actually ignores the salt text.
 
 =item 5
@@ -102,8 +102,8 @@ SHA-512
     use NativeCall;
     # Mac OSX uses libgcrypt to supply crypt()
     # FreeBSD always provides a non-versioned symlink AFAIK
-    constant LIB = [ 
-        $*DISTRO.name eq 'macosx' ?? 'libgcrypt.dylib' !! 'crypt', 
+    constant LIB = [
+        $*DISTRO.name eq 'macosx' ?? 'libgcrypt.dylib' !! 'crypt',
         $*DISTRO.name eq 'freebsd' ?? Version !! v1
     ];
     sub crypt(Str , Str  --> Str) is native(LIB) is export { * }
