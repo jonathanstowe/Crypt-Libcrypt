@@ -1,6 +1,6 @@
 {
   "name": "Crypt::Libcrypt",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "auth": "github:jonathanstowe",
   "api": "1.0",
   "description": "Simple binding to crypt(3) from unix-like systems",
@@ -9,6 +9,7 @@
     "source": "git://github.com/jonathanstowe/Crypt-Libcrypt.git"
   },
   "perl": "6.*",
+  "raku": "6.*",
   "resources": [
   ],
   "build-depends": [
@@ -30,5 +31,5 @@
   "authors": [
     "Jonathan Stowe <jns+git@gellyfish.co.uk>"
   ],
-  "meta-version": "0"
+  "meta-version": "1"
 }

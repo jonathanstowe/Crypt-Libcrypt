@@ -18,6 +18,10 @@ Crypt::Libcrypt - simple binding to POSIX crypt(3)
 
     my $crypted = crypt($password, $salt );
 
+    # Or if crypt_gensalt is available
+
+    $crypted = crypt($password);
+
 =end code
 
 =end SYNOPSIS
@@ -27,12 +31,17 @@ Crypt::Libcrypt - simple binding to POSIX crypt(3)
 This is a binding to the crypt() function that is typically defined in
 libcrypt on most Unix-like systems or those providing a POSIX API.
 
-There is a single exported subroutine crypt() that perform a one-way
+There is at least a single exported subroutine crypt() that perform a one-way
 encryption of the supplied plain text, with the provided "salt".
 Depending on the implementation on your system, the structure of the
 salt may influence the algorithm that is used to perform the encryption.
 The default will probably be the DES algorithm that was traditionally
-used to encrypt passwords on a Unix system.
+used to encrypt passwords on a Unix system, this is, however, not recommended
+for new code:  see the section "Encryption mechanisms" below.
+
+If the function C<crypt_gensalt> is provided by the C<libcrypt> then you
+can call C<crypt> with a single argument which will used the preferred
+encryption method with a generated random salt.
 
 Because this is intended primarily for the encryption of passwords and
 is "one way" (i.e. there is no mechanism to "decrypt" the crypt text,)
@@ -94,6 +103,18 @@ SHA-256
 
 SHA-512
 
+You can probably get a description of all available methods on
+your system from the C<crypt(5)> manpage (or e,g 
+L<https://manpages.debian.org/experimental/libcrypt1-dev/crypt.5.en.html> .)
+
+If you have a reasonably modern C<libcrypt> then the subroutine
+C<crypt-preferred-method> will return the prefix '$id$' as 
+described above of the best and recommended encryption method.
+(if the library isn't sufficiently new the function will return
+a Str type object.) Bear in mind however if you need to pass the
+hashed password to other software, there may be other constraints
+on the methods you can use.
+
 
 =end DESCRIPTION
 
@@ -106,6 +127,28 @@ SHA-512
         $*DISTRO.name eq 'macosx' ?? 'libgcrypt.dylib' !! 'crypt',
         $*DISTRO.name eq 'freebsd' ?? Version !! v1
     ];
-    sub crypt(Str , Str  --> Str) is native(LIB) is export { * }
+
+
+    sub crypt_preferred_method( --> Str) is native(LIB) { * }
+
+    sub crypt-preferred-method(--> Str ) is export {
+        (try crypt_preferred_method()) // Str
+    }
+
+    sub crypt_gensalt(Str, uint32, Str, int32 --> Str) is native(LIB) { * }
+
+    sub crypt-generate-salt( --> Str ) is export {
+        (try crypt_gensalt(Str, 0, Str, 0 ) ) // Str
+    }
+
+    sub _crypt(Str , Str  --> Str) is native(LIB) is symbol('crypt') { * }
+
+    multi crypt(Str $password, Str $salt --> Str ) {
+        _crypt($password, $salt)
+    }
+
+    multi crypt(Str $password where { crypt-preferred-method() } --> Str ) is export {
+        _crypt($password, crypt-generate-salt() );
+    }
 }
 # vim: expandtab shiftwidth=4 ft=perl6

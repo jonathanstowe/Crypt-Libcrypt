@@ -1,3 +1,5 @@
+v0.1.0		Mon 16 Dec 21:57:36 GMT 2019
+	* Add crypt-preferred-method and crypt-generate-salt
 v0.0.9      Mon 14 Jan 13:35:45 GMT 2019
     * Spring clean and up to CPAN
 v0.0.8		Sat 14 Apr 09:19:54 BST 2018
