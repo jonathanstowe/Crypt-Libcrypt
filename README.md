@@ -1,6 +1,6 @@
 # Crypt::Libcrypt
 
-Provide a simple Perl 6 binding to POSIX crypt(3) function
+Provide a simple Raku binding to POSIX crypt(3) function
 
 ## Synopsis
 
@@ -64,11 +64,9 @@ If you have a reasonably modern `libcrypt` then the subroutine `crypt-preferred-
 
 ## Installation
 
-Currently there is no dedicated test to determine whether your platform is
-supported, the unit tests may simply fail horribly.
+Currently there is no dedicated test to determine whether your platform is supported, the unit tests may simply fail horribly.
 
-Assuming you have a working perl6 installation you should be able to
-install this with *zef* :
+Assuming you have a working Rakudo installation you should be able to install this with *zef* :
 
     # From the source directory
    
@@ -96,4 +94,4 @@ This is free software.
 
 Please see the [LICENCE](LICENCE) file in the distribution
 
-© Jonathan Stowe 2015, 2016, 2017, 2019
+© Jonathan Stowe 2015 - 2021

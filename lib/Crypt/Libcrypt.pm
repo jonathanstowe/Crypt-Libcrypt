@@ -104,11 +104,11 @@ SHA-256
 SHA-512
 
 You can probably get a description of all available methods on
-your system from the C<crypt(5)> manpage (or e,g 
+your system from the C<crypt(5)> manpage (or e,g
 L<https://manpages.debian.org/experimental/libcrypt1-dev/crypt.5.en.html> .)
 
 If you have a reasonably modern C<libcrypt> then the subroutine
-C<crypt-preferred-method> will return the prefix '$id$' as 
+C<crypt-preferred-method> will return the prefix '$id$' as
 described above of the best and recommended encryption method.
 (if the library isn't sufficiently new the function will return
 a Str type object.) Bear in mind however if you need to pass the
@@ -143,7 +143,7 @@ on the methods you can use.
 
     sub _crypt(Str , Str  --> Str) is native(LIB) is symbol('crypt') { * }
 
-    multi crypt(Str $password, Str $salt --> Str ) {
+    multi crypt(Str $password, Str $salt --> Str ) is export {
         _crypt($password, $salt)
     }
 
@@ -151,4 +151,4 @@ on the methods you can use.
         _crypt($password, crypt-generate-salt() );
     }
 }
-# vim: expandtab shiftwidth=4 ft=perl6
+# vim: expandtab shiftwidth=4 ft=raku
