@@ -1,3 +1,6 @@
+v0.1.1		Fri 22 Jan 22:08:37 GMT 2021
+	* Switch to GH actions
+	* Spring clean and rename
 v0.1.0		Mon 16 Dec 21:57:36 GMT 2019
 	* Add crypt-preferred-method and crypt-generate-salt
 v0.0.9      Mon 14 Jan 13:35:45 GMT 2019

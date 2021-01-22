@@ -2,6 +2,8 @@
 
 Provide a simple Raku binding to POSIX crypt(3) function
 
+![Build Status](https://github.com/jonathanstowe/Crypt-Libcrypt/workflows/CI/badge.svg)
+
 ## Synopsis
 
         use Crypt::Libcrypt;
