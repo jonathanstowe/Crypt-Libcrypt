@@ -1,3 +1,5 @@
+v0.1.2	Sun  7 Aug 09:45:24 BST 2022
+	* Upload to zef repository
 v0.1.1		Fri 22 Jan 22:08:37 GMT 2021
 	* Switch to GH actions
 	* Spring clean and rename
@@ -16,3 +18,4 @@ v0.0.5		Thu Dec 24 19:35:38 2015 +0000
 	* Fix for 6.c
 	* done -> done-testing
 	* Add vim modeline
+
