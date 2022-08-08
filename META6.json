@@ -10,14 +10,14 @@
   "resources": [
   ],
   "provides": {
-    "Crypt::Libcrypt": "lib/Crypt/Libcrypt.pm"
+    "Crypt::Libcrypt": "lib/Crypt/Libcrypt.rakumod"
   },
   "description": "Simple binding to crypt(3) from unix-like systems",
   "depends": [
   ],
   "auth": "zef:jonathanstowe",
   "meta-version": "1",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "Jonathan Stowe <jns+git@gellyfish.co.uk>",
   "support": {
     "source": "git://github.com/jonathanstowe/Crypt-Libcrypt.git"

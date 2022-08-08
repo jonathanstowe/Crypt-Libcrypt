@@ -32,10 +32,6 @@
       "type": "file"
     },
     {
-      "type": "file",
-      "name": "Build.pm"
-    },
-    {
       "type": "directory",
       "name": "lib",
       "children": [
@@ -43,7 +39,7 @@
           "purpose": null,
           "children": [
             {
-              "name": "Libcrypt.pm",
+              "name": "Libcrypt.rakumod",
               "type": "file"
             }
           ],
